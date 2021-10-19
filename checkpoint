@@ -1,0 +1,2 @@
+model_checkpoint_path: "D:\\python\\Voice Assistant\\model.tflearn"
+all_model_checkpoint_paths: "D:\\python\\Voice Assistant\\model.tflearn"
