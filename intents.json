@@ -1,0 +1,58 @@
+{"intents": [
+    {"tag": "greetings",
+     "patterns": ["greet", "Hi", "Hello", "How are you?", "What's up?", "Is anyone there?", "Wake up!"],
+     "responses": ["Hi!", "Hello!", "Good to see you again!", "Hi there, how can I help?"],
+     "context_set": ""
+    },
+    {"tag": "goodbye",
+     "patterns": ["Bye", "Goodbye", "See you later", "Got to go", "Have a nice day"],
+     "responses": ["Goodbye!", "Talk to you later.", "Byee!"],
+     "context_set": ""
+    },
+    {"tag": "name",
+     "patterns": ["name", "What is your name?", "Can you tell me your name?"],
+     "responses": ["My name is Aiva.", "I am Aiva.", "Everyone calls me Aiva."],
+     "context_set": ""
+    },
+    {"tag": "age",
+     "patterns": ["age", "How old are you?", "What is your age?"],
+     "responses": ["I am 2 months young.", "Its been 2 months since my birth.", "I am 2 months old."],
+     "context_set": ""
+    },
+    {"tag":"wikipedia",
+     "patterns": ["wikipedia", "Search something on wikipedia", "Tell me about this from wikipedia"],
+     "responses": ["According to wikipedia, ", "Wikipedia says, "],
+     "context_set": ""
+    },
+    {"tag": "open youtube",
+     "patterns": ["Youtube", "Open Youtube", "Run Youtube", "Search on Youtube"],
+     "responses": ["Opening Youtube", "Launching Youtube"],
+     "context_set": ""
+    },
+    {"tag": "open google",
+     "patterns": ["Google", "Open Google", "Run Google", "Launch Google", "Search on Google"],
+     "responses": ["Opening Google", "Launching Google"],
+     "context_set": ""
+    },
+    {"tag": "play music",
+     "patterns": ["Music", "Song", "Play music", "I want to listen to some music", "Play a song"],
+     "responses": ["Playing a song", "Playing some music for you"],
+     "context_set": ""
+    },
+    {"tag": "time",
+     "patterns": ["Time", "What is the time right now?", "Current time"],
+     "responses": ["The time is ", "Currently it is "],
+     "context_set": ""
+    },
+    {"tag": "open steam",
+     "patterns": ["Steam", "Open Steam", "Run Steam", "Launch Steam"],
+     "responses": ["Opening Steam", "Launching Steam"],
+     "context_set": ""
+    },
+    {"tag": "email",
+     "patterns": ["Email", "Send an email for me", "Send email", "Write an email"],
+     "responses": [],
+     "context_set": ""
+    }
+]
+}
