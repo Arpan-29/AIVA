@@ -10,12 +10,17 @@ import json
 import random
 import pickle
 
+fail = False
+
 # DATA PREPROCESSING
 
 with open("intents.json") as file:
     data = json.load(file)
 
 try:
+    if fail:
+        skip
+
     with open("data.pickle", "rb") as f:
         words, labels, training, output = pickle.load(f)
 except:
@@ -83,9 +88,12 @@ model = tflearn.DNN(net)
 # TRAINING MODEL
 
 try:
+    if fail:
+        skip
+
     model.load("model.tflearn")
 except:
-    model.fit(training, output, n_epoch = 1000, batch_size = 8, show_metric = True)
+    model.fit(training, output, n_epoch = 500, batch_size = 16, show_metric = True)
     model.save("model.tflearn")
 
 # MAIN FUNCTIONS
@@ -111,7 +119,7 @@ def get_response(query):
     results = model.predict([bag_of_words(query, words)])[0]
     results_index = np.argmax(results)
 
-    if results[results_index] > 0.5:
+    if results[results_index] > 0.75:
         tag = labels[results_index]
             
         for intent in data["intents"]:

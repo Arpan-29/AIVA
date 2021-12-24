@@ -5,8 +5,11 @@ import os
 import smtplib
 import datetime
 import wikipedia
+import time
 
 from LoginCredentials import email, password
+from keyboard_mouse import click, rightClick, move, press, release, pressOnce, write
+import keyboard_mouse
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -14,6 +17,8 @@ engine.setProperty('voice', voices[1].id)
 
 from DLC import get_response
 
+typing = False
+writeLog = ""
 
 def speak(sentence):
 
@@ -48,6 +53,9 @@ def takeCommand():
         print("Listening....")
         audio = r.listen(source)
 
+        volume = engine.getProperty('volume')
+        print(volume)
+
     try:
         
         print("Recognizing....")
@@ -80,12 +88,42 @@ if __name__ == "__main__":
 
         query = takeCommand().lower()
 
-        if query == "None":
-            continue
-
         response, tag = get_response(query)
 
-        if tag == "wikipedia":
+        if tag == "start writing":
+            typing = True
+
+            speak(response)
+            print(f"Aiva: {response}")
+            
+            continue
+
+        elif tag == "stop writing":
+            typing = False
+
+            speak(response)
+            print(f"Aiva: {response}")
+
+            continue
+
+        if typing:
+
+            if tag == "delete": 
+        
+                pressOnce('backspace')
+                writeLog = writeLog[:-1]
+
+                while len(writeLog) > 0 and writeLog[-1] != ' ':
+                    pressOnce('backspace')
+                    writeLog = writeLog[:-1]
+
+            elif query.lower() != "none":
+                writeLog += query + ". "
+                write(query + ". ")
+
+            continue
+
+        elif tag == "wikipedia":
             print("Seaching Wikipedia...")
 
             speak("What do you want to search about?")
@@ -131,6 +169,36 @@ if __name__ == "__main__":
 
         elif tag == "goodbye":
             end = True
+
+        elif tag == "shut down":
+            end = True
+
+            speak(response)
+            print(f"Aiva: {response}")
+
+            # pressOnce('win')
+            # move(20, 1079)
+            click(20, 1079)
+            click(725, 954)
+            click(730, 873)
+
+        elif tag == "open word":
+            speak(response)
+            print(f"Aiva: {response}")
+
+            move(20, 1079)
+            click(20, 1079)
+
+            write('word')
+
+            pressOnce('enter')
+            time.sleep(2)
+            # move(21, 1079)
+            rightClick(425, 1051)
+            click(430, 909)
+            pressOnce('enter')
+
+            continue
 
         speak(response)
         print(f"Aiva: {response}")

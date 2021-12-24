@@ -51,7 +51,32 @@
     },
     {"tag": "email",
      "patterns": ["Email", "Send an email for me", "Send email", "Write an email"],
-     "responses": [],
+     "responses": [""],
+     "context_set": ""
+    },
+    {"tag": "shut down",
+     "patterns": ["Shutdown", "Shutdown this PC", "Shut down", "Turn off", "Shut down the PC", "Shut the computer down"],
+     "responses": ["Okay bye", "See you later"],
+     "context_set": ""
+    },
+    {"tag": "open word",
+     "patterns": ["Open word", "open MS word", "open microsoft word", "open doc", "open a document", "launch MS word"],
+     "responses": ["Sure"],
+     "context_set": ""
+    },
+    {"tag": "start writing",
+     "patterns": ["start writing", "start typing", "begin writing"],
+     "responses": ["Sure"],
+     "context_set": ""
+    },
+    {"tag": "stop writing",
+     "patterns": ["stop writing", "end writing", "stop typing"],
+     "responses": ["Sure"],
+     "context_set": ""
+    },
+    {"tag": "delete",
+     "patterns": ["delete", "delete word", "delete last word"],
+     "responses": [""],
      "context_set": ""
     }
 ]
